@@ -1,0 +1,6 @@
+.DS_Store
+build/vendor/
+build/cert/
+build/dist/
+build/stage/
+build/signed/

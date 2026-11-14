@@ -1,0 +1,10 @@
+TRACKR includes a copy of FFmpeg, which it uses to read frames from your clips.
+
+FFmpeg (https://ffmpeg.org) is free software. The builds included here were compiled
+with GPL components enabled and are licensed under the GNU General Public License,
+version 3 or later: https://www.gnu.org/licenses/gpl-3.0.html
+
+The binaries come unmodified from the ffmpeg-static project, release b6.1.1:
+https://github.com/eugeneware/ffmpeg-static/releases/tag/b6.1.1
+
+FFmpeg source code: https://ffmpeg.org/download.html

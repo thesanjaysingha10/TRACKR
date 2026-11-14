@@ -1,0 +1,44 @@
+TRACK MOTION FOR PREMIERE PRO
+=============================
+
+Close Premiere Pro before installing. Afterwards open the panel from
+Window > Extensions > TRACKR.
+
+
+MAC
+---
+Easiest:  double-click  TRACKR-<version>-mac.pkg
+  - macOS will say it is from an unidentified developer. Right-click the file,
+    choose Open, then Open again.
+  - It installs for your user only and does not ask for a password.
+
+Or:  open  TRACKR-<version>-mac.zxp  with any ZXP installer.
+
+To remove it, delete this folder:
+  ~/Library/Application Support/Adobe/CEP/extensions/com.studio.trackr
+
+
+WINDOWS
+-------
+Easiest:  double-click  TRACKR-<version>-windows-setup.exe
+  - Windows SmartScreen may warn about an unknown publisher. Choose
+    More info > Run anyway.
+  - It installs for your user only and does not need administrator rights.
+
+Or:  open  TRACKR-<version>-windows.zxp  with any ZXP installer.
+
+To remove it, use Settings > Apps > Installed apps > TRACKR for Premiere Pro.
+
+
+IF THE PANEL OPENS BLANK OR IS MISSING FROM THE MENU
+----------------------------------------------------
+Premiere did not accept the extension's signature. Turn on Adobe's extension
+developer mode, then restart Premiere Pro:
+
+  Mac (Terminal):
+    defaults write com.adobe.CSXS.12 PlayerDebugMode 1
+
+  Windows (Command Prompt):
+    reg add HKCU\Software\Adobe\CSXS.12 /v PlayerDebugMode /t REG_SZ /d 1 /f
+
+Use CSXS.11 instead of CSXS.12 for Premiere Pro 2024 and earlier.

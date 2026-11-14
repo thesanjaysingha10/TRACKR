@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TRACKR</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M2.5 6.5v-4h4M13.5 2.5h4v4M17.5 13.5v4h-4M6.5 17.5h-4v-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="10" cy="10" r="2.6" fill="currentColor"/>
+      </svg>
+      <span>TRACKR</span>
+    </div>
+    <button id="refresh" class="icon-btn" title="Use the selected clip">
+      <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M14.6 6.2A6.1 6.1 0 1 0 15.1 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15.3 2.6v3.9h-3.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </header>
+
+  <main id="main">
+    <div class="stage" id="stage">
+      <section class="clip" id="clip">
+        <div class="clip-dot"></div>
+        <div class="clip-text">
+          <div class="clip-name" id="clipName">No clip selected</div>
+          <div class="clip-meta" id="clipMeta">Select a video clip in the timeline</div>
+        </div>
+      </section>
+
+      <div class="viewer-wrap" id="viewerWrap">
+        <section class="viewer" id="viewer">
+          <canvas id="view"></canvas>
+          <div class="hint" id="hint">Click the subject to follow</div>
+        </section>
+      </div>
+
+      <div class="scrub" id="scrubBox">
+        <div class="scrub-track" id="scrub" tabindex="0" title="Drag to scroll through the clip. Arrow keys step one frame.">
+          <i class="band" id="band"></i>
+          <i class="mark" id="mark"></i>
+          <i class="head" id="head"></i>
+        </div>
+        <div class="scrub-row">
+          <div class="time"><b id="timeNow">0:00.00</b> <span id="timeDur">/ 0:00.00</span></div>
+          <div class="range">
+            <button type="button" class="chip" id="setIn" title="Start the zoom at this frame"><span>In</span><b id="inOut">0:00.00</b></button>
+            <button type="button" class="chip" id="setOut" title="End the zoom at this frame"><span>Out</span><b id="outOut">0:00.00</b></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls" id="controls">
+      <section class="group attach" id="attachBox" hidden>
+        <div class="attach-text">
+          <div class="attach-label">Selected clip</div>
+          <div class="attach-name" id="attachName">Text</div>
+        </div>
+        <button type="button" class="btn primary small" id="attach" title="Make this clip follow the tracked subject, using the Follow and Ease settings below">Attach to subject</button>
+      </section>
+
+      <section class="group">
+        <div class="row">
+          <label for="zoom">Zoom</label>
+          <input type="range" id="zoom" min="100" max="300" step="1" value="150">
+          <output id="zoomOut">150%</output>
+        </div>
+        <div class="row">
+          <label for="box">Target size</label>
+          <input type="range" id="box" min="4" max="40" step="1" value="14">
+          <output id="boxOut">14%</output>
+        </div>
+      </section>
+
+      <section class="group">
+        <div class="row">
+          <label for="smooth">Follow</label>
+          <input type="range" id="smooth" min="0" max="100" step="1" value="0">
+          <output id="smoothOut">Tight</output>
+        </div>
+        <div class="row">
+          <label for="ease">Ease</label>
+          <input type="range" id="ease" min="0" max="3" step="0.1" value="0">
+          <output id="easeOut">0.0 s</output>
+        </div>
+        <div class="row">
+          <label>Framing</label>
+          <div class="segmented" id="framing" role="radiogroup">
+            <button type="button" class="on" data-v="keep" role="radio" aria-checked="true">Hold in place</button>
+            <button type="button" data-v="centre" role="radio" aria-checked="false">Centre</button>
+          </div>
+        </div>
+        <div class="row">
+          <label for="thirds">Thirds grid</label>
+          <label class="switch" title="Show a rule-of-thirds guide in the zoomed frame (preview only)"><input type="checkbox" id="thirds" checked><i></i></label>
+        </div>
+        <div class="row">
+          <label for="back">Zoom back out</label>
+          <label class="switch"><input type="checkbox" id="back" checked><i></i></label>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="progress" id="progress"><i id="progressBar"></i></div>
+    <div class="status" id="status">Ready</div>
+    <div class="actions">
+      <button type="button" class="btn quiet" id="reset">Reset</button>
+      <button type="button" class="btn outline" id="track" title="Follow the subject through the range. Nothing is written to the clip yet.">Track</button>
+      <button type="button" class="btn primary" id="apply" title="Write the follow zoom onto the clip from the track, using the current settings" disabled>Apply</button>
+    </div>
+  </footer>
+
+  <script src="tracker.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
