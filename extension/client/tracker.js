@@ -139,6 +139,9 @@
     const dx = gaussianSmooth(points.map((p) => p.x - ax), sigma);
     const dy = gaussianSmooth(points.map((p) => p.y - ay), sigma);
 
+    // Ease 0 means no ramp: fully zoomed from the first frame of the range to the last.
+    // (The caller adds cut keys just outside the range so the zoom starts and ends on a cut.)
+    const ramp = o.easeSec > 0;
     let easeF = Math.max(1, Math.round(o.easeSec * o.fps));
     const ramps = o.zoomBack ? 2 : 1;
     if (easeF * ramps > n - 1) easeF = Math.max(1, Math.floor((n - 1) / ramps));
@@ -151,8 +154,8 @@
 
     const frames = [];
     for (let i = 0; i < n; i++) {
-      let z = easeInOut(i / easeF);
-      if (o.zoomBack) z = Math.min(z, easeInOut((n - 1 - i) / easeF));
+      let z = ramp ? easeInOut(i / easeF) : 1;
+      if (ramp && o.zoomBack) z = Math.min(z, easeInOut((n - 1 - i) / easeF));
       const s = s0 * (1 + (o.zoom - 1) * z);
       let x = p0x + (cx - dx[i] * s / 100 - p0x) * z;
       let y = p0y + (cy - dy[i] * s / 100 - p0y) * z;
@@ -171,7 +174,7 @@
     const step = Math.max(1, o.keyStep || 1), keys = [];
     for (let i = 0; i < n; i++) {
       if (i % step === 0 || i === n - 1) {
-        const pin = i === 0 || (o.zoomBack && i === n - 1);
+        const pin = ramp && (i === 0 || (o.zoomBack && i === n - 1));
         const k = frames[i];
         keys.push({
           f: i, s: k.s,

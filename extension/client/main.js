@@ -621,6 +621,13 @@
         zoomBack: $('back').checked, keyStep: Math.max(1, Math.round(c.fps / 12)),
       });
       status('Writing ' + keys.length + ' keyframes…');
+      // With no ease, the zoom cuts in and out: a resting key one frame before the range keeps
+      // the frames before In unzoomed, and (with "Zoom back out") one frame after Out cuts back.
+      if (!(Number($('ease').value) > 0)) {
+        const rest = { x: 0.5, y: 0.5, s: 100 };
+        if (fA > 0) keys.unshift(Object.assign({ f: -1 }, rest));
+        if ($('back').checked && fB < last) keys.push(Object.assign({ f: fB - fA + 1 }, rest));
+      }
       const rows = keys.map((k) => [(c.inPoint + (fA + k.f) / c.fps).toFixed(5), k.x.toFixed(6), k.y.toFixed(6), k.s.toFixed(3)].join(','));
       await host('apply', c.nodeId + '|' + rows.join(';'));
       status('Applied. To make text follow, select the text clip', 'ok');

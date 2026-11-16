@@ -18,10 +18,10 @@ Everything runs on your own computer. Nothing gets uploaded.
 
 ## Download
 
-- **Mac:** [TRACKR-1.0.0-mac.pkg](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.0/TRACKR-1.0.0-mac.pkg) (45 MB)
-- **Windows:** [TRACKR-1.0.0-windows-setup.exe](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.0/TRACKR-1.0.0-windows-setup.exe) (30 MB)
+- **Mac:** [TRACKR-1.0.1-mac.pkg](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.1/TRACKR-1.0.1-mac.pkg) (45 MB)
+- **Windows:** [TRACKR-1.0.1-windows-setup.exe](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.1/TRACKR-1.0.1-windows-setup.exe) (30 MB)
 
-Using an extension installer like ZXPInstaller? Get the `.zxp` for [Mac](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.0/TRACKR-1.0.0-mac.zxp) or [Windows](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.0/TRACKR-1.0.0-windows.zxp). All files are also on the [Releases](../../releases/latest) page.
+Using an extension installer like ZXPInstaller? Get the `.zxp` for [Mac](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.1/TRACKR-1.0.1-mac.zxp) or [Windows](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.1/TRACKR-1.0.1-windows.zxp). All files are also on the [Releases](../../releases/latest) page.
 
 ---
 
