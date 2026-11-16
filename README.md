@@ -16,13 +16,18 @@ Made by [@thesanjaysingha](https://instagram.com/thesanjaysingha) with the help 
 
 Everything runs on your own computer. Nothing gets uploaded.
 
+## Download
+
+- **Mac:** [TRACKR-1.0.0-mac.pkg](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.0/TRACKR-1.0.0-mac.pkg) (45 MB)
+- **Windows:** [TRACKR-1.0.0-windows-setup.exe](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.0/TRACKR-1.0.0-windows-setup.exe) (30 MB)
+
+Using an extension installer like ZXPInstaller? Get the `.zxp` for [Mac](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.0/TRACKR-1.0.0-mac.zxp) or [Windows](https://github.com/thesanjaysingha10/TRACKR/releases/download/v1.0.0/TRACKR-1.0.0-windows.zxp). All files are also on the [Releases](../../releases/latest) page.
+
 ---
 
 ## How to install
 
-1. Go to [**Releases**](../../releases/latest) and download:
-   - **Mac:** `TRACKR-1.0.0-mac.pkg`
-   - **Windows:** `TRACKR-1.0.0-windows-setup.exe`
+1. Download the installer for your computer from **Download** above.
 2. Close Premiere Pro.
 3. Double-click the file you downloaded and follow the steps.
 4. Open Premiere and go to **Window > Extensions > TRACKR**.
